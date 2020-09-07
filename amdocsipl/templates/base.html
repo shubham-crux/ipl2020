@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static  %}
+{% load socialaccount %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+body {
+  background-image: url({% static 'images/background.jpg' %});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div>
+            <ul class="nav justify-content-end">
+                    <li style="color:white;" > <a class="navbar-brand" style="color:white;"  href="{% url 'index' %}">MDOCS IPL2020</a> </li>
+                    <li class="nav-item" style="padding: 20px;"> <a class="navbar-link" href="{% url 'matches'%}">SCHEDULE</a> </li>
+                    <li class="nav-item" style="padding: 20px;"> <a class="navbar-link" href="{% url 'admin:index'%}">ADMIN</a> </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item" style="padding: 20px; align:right"> <a class="navbar-link" href="{% url 'logout' %}"> {{ user.username }}, Logout here!</a> </li>
+                    {% else %}
+                    <li class="nav-item" style="padding: 20px; align:right"> <a href="{% provider_login_url 'google' %}">Login with Google</a> </li>
+                    {% endif %}
+
+            </ul>
+        </div>
+
+    </nav>
+    <div class="container">
+            {% block body_block %}
+
+           {% endblock %}
+    </div>
+
+
+
+</body>
+</html>

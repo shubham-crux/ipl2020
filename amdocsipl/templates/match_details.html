@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+
+{% block body_block %}
+
+
+
+<div class="jumbotron">
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Match</th>
+        <th>Date</th>
+        <th>Day</th>
+        <th>Time(IST)</th>
+      </tr>
+    </thead>
+      {% for match in matches_detail %}
+    <tbody>
+      <tr>
+          <td>{{ match.pk }}</td>
+          <td>{{ match.matchname }}</td>
+          <td>{{ match.matchdate }}</td>
+          <td>{{ match.matchday }}</td>
+          <td>{{ match.matchtime }}</td>
+
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+  </div>
+</div>
+
+
+
+{% endblock %}

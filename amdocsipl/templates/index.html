@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+
+
+
+
+{% block body_block %}
+
+<div class="jumbotron">
+
+    {% if user.is_authenticated %}
+  <h1>Welcome to ipl2020 dream11 contest.</h1>
+  <p>Welcome, {{ user.username }} !</p>
+
+  {% else %}
+  <h1>Welcome to ipl2020 dream11 contest.</h1>
+  <p> You must login with google, to see the website contents!</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}
