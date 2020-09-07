@@ -22,6 +22,8 @@ body {
             <ul class="nav justify-content-end">
                     <li style="color:white;" > <a class="navbar-brand" style="color:white;"  href="{% url 'index' %}">MDOCS IPL2020</a> </li>
                     <li class="nav-item" style="padding: 20px;"> <a class="navbar-link" href="{% url 'matches'%}">SCHEDULE</a> </li>
+                    <li class="nav-item" style="padding: 20px;"> <a class="navbar-link" href="{% url 'rules'%}">RULES</a> </li>
+                    <li class="nav-item" style="padding: 20px;"> <a class="navbar-link" href="{% url 'players'%}">PLAYERS</a> </li>
                     <li class="nav-item" style="padding: 20px;"> <a class="navbar-link" href="{% url 'admin:index'%}">ADMIN</a> </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item" style="padding: 20px; align:right"> <a class="navbar-link" href="{% url 'logout' %}"> {{ user.username }}, Logout here!</a> </li>

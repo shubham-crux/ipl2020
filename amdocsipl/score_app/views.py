@@ -1,5 +1,5 @@
 # from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -28,3 +28,15 @@ class MatchDetailsView(ListView):
     context_object_name = 'matches_detail'
     model = models.Matches
     template_name = 'match_details.html'
+
+
+class MatchRulesView(ListView):
+    context_object_name = 'match_rules'
+    model = models.Rankings
+    template_name = 'match_rules.html'
+
+
+class MatchPlayersView(ListView):
+    context_object_name = 'match_players'
+    model = models.Players
+    template_name = 'match_players.html'

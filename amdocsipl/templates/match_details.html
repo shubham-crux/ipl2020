@@ -8,7 +8,7 @@
 
 <div class="jumbotron">
   <div class="table-responsive">
-  <table class="table">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>#</th>
@@ -20,8 +20,8 @@
     </thead>
       {% for match in matches_detail %}
     <tbody>
-      <tr>
-          <td>{{ match.pk }}</td>
+      <tr style="font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 14px; font-weight: bold;">
+          <td >{{ match.pk }}</td>
           <td>{{ match.matchname }}</td>
           <td>{{ match.matchdate }}</td>
           <td>{{ match.matchday }}</td>

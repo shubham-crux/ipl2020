@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+
+{% block body_block %}
+
+
+<div class="jumbotron">
+
+    <h1 align="center"> Rules and Rankings!</h1>
+
+    <p>Points will be distributed as per below rankings and the corresponding points. Only in case of equal rankings points will be distributed as
+    mentioned below:</p>
+    <p>If X get's rank 1 and Y too get's rank 1, then points of rank1 and rank2 will be added and then it will be distributed equally.</p>
+        <table style="border-collapse: collapse; border: 1px solid black;" ><thead><tr> <th style="border: 1px solid black;">Name</th><th style="border: 1px solid black;">Ideal Rank</th><th style="border: 1px solid black;">Ideal Points</th><th style="border: 1px solid black;">New Rank</th><th style="border: 1px solid black;">New Points</th></tr>
+        <tbody ><tr style="border: 1px solid black;"> <th style="border: 1px solid black;">X</th><th style="border: 1px solid black;">1 </th><th style="border: 1px solid black;">100</th><th style="border: 1px solid black;">1</th><th style="border: 1px solid black;"   >80</th></tbody>
+        <tbody><tr> <th style="border: 1px solid black;">Y</th><th style="border: 1px solid black;" >2 </th><th style="border: 1px solid black;">60</th><th style="border: 1px solid black;">1</th><th style="border: 1px solid black;">80</th></tbody></table>
+    <br>
+  <div class="table-condensed">
+  <table class="table  table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+      {% for data in match_rules %}
+    <tbody>
+      <tr style="font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 14px; font-weight: bold;">
+          <td >{{ data.rank }}</td>
+          <td>{{ data.points }}</td>
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+  </div>
+</div>
+
+
+{% endblock %}
