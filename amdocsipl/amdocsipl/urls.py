@@ -26,5 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('matches/', views.MatchDetailsView.as_view(), name='matches'),
     path('rules/', views.MatchRulesView.as_view(), name='rules'),
-    path('players/', views.MatchPlayersView.as_view(), name='players'),
+    path('players/', login_required(views.MatchPlayersView.as_view()), name='players'),
+    path('wins/', login_required(views.MatchWinsView.as_view()), name='wins'),
+    path('leaders/', login_required(views.MatchLeadersView.as_view()), name='leaders'),
 ]

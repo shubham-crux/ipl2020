@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+     <div class="float-right">
+         <h6> In search enter date format as: YYYY-MM-DD </h6>
+        <form method="get">
+        {{ filter.form }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+<div class="jumbotron">
+
+    <h2> Winning Dashboard!</h2>
+  <div class="table-condensed">
+  <table class="table  table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Match</th>
+        <th>Player</th>
+        <th>Rank</th>
+        <th>PointsWon</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+      {% for win in filter.qs %}
+    <tbody>
+      <tr style="font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 14px; font-weight: bold;">
+          <td>{% for matchdetail in win.matchdetail.all  %} {{ matchdetail }} {% endfor %}</td>
+          <td>{% for playerdetail in win.playerdetail.all  %} {{ playerdetail }} {% endfor %}</td>
+          <td>{% for rankdetail in win.rankdetail.all  %} {{ rankdetail }} {% endfor %}</td>
+          <td>{{ win.pointswon }}</td>
+          <td>{{ win.windate }}</td>
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,11 +1,12 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, CreateView
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout
 from . import models
-
+from .filters import WinsFilter
+from django.db.models import Sum
 
 # from . import models
 # from django.urls import reverse_lazy
@@ -40,3 +41,20 @@ class MatchPlayersView(ListView):
     context_object_name = 'match_players'
     model = models.Players
     template_name = 'match_players.html'
+
+
+class MatchWinsView(ListView):
+    model = models.Wins
+    template_name = 'match_wins.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = WinsFilter(self.request.GET, queryset=self.queryset)
+        return context
+
+
+
+class MatchLeadersView(ListView):
+    context_object_name = 'match_leaders'
+    model = models.Leaders
+    template_name = 'match_leader.html'
